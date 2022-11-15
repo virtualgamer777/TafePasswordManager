@@ -1,25 +1,36 @@
 //include libraries
 #include <iostream>
 #include <string>
+#include <ctime>
 //local includes
 #include "options.h"
 
 //main function
 int main(int argc, char** argv)
 {
+
+    std::time_t t = std::time(0);
+    char time[26];
+    ctime_s(time, sizeof(time), &t);
+    std::cout << "current time is: " << time << "\n\n\n";
+    
+
+    bool comeBack = true;
     std::vector<user> users;
     GetUsers(&users);
-    std::cout << users[0].u_name << "\n" << users[0].u_password << "\n";
     //output options
-    std::cout << "please choose an option:\n"
-        << "\t(1) login\n"
-        << "\t(2) register\n"
-        << "\t(3) view accounts\n"
-        << "\t(4) exit\n";
-
-
     while (1)
     {
+        if (comeBack)
+        {
+            std::cout << "please choose an option:\n"
+                << "\t(1) login\n"
+                << "\t(2) register\n"
+                << "\t(3) view accounts\n"
+                << "\t(4) exit\n";
+            comeBack = false;
+        }
+
         //read input
         int choice = -1;
         std::string choiceAsStr;
@@ -38,16 +49,19 @@ int main(int argc, char** argv)
         switch (choice)
         {
         case 1:
-            printf("chose login\n");
+            comeBack = true;
             Login(&users);
             break;
         case 2:
-            printf("chose register\n");
+            comeBack = true;
+            Register(&users);
             break;
         case 3:
-            printf("chose view accounts\n");
+            comeBack = true;
+            ViewAccounts(&users);
             break;
         case 4:
+            comeBack = true;
             printf("chose exit\n");
             return 0;
             break;

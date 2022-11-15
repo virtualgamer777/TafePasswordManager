@@ -5,7 +5,7 @@ void GetUsers(std::vector<user>* users)
 {
 	// open file
 	std::ifstream userfile;
-	userfile.open("user.txt");
+	userfile.open("users.txt");
 	std::string line;
 	
 	//read line by line
@@ -27,5 +27,6 @@ void GetUsers(std::vector<user>* users)
 		users->push_back(u);
 
 	}
+	userfile.close();
 	
 }
