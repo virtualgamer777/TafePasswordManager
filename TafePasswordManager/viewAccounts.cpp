@@ -1,5 +1,6 @@
-#include "options.h"
 #include <iostream>
+#include "options.h"
+
 
 void ViewAccounts(std::vector<user>* users)
 {

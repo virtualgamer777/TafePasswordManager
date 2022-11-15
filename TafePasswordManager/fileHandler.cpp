@@ -1,5 +1,5 @@
-#include "options.h"
 #include <iostream>
+#include "options.h"
 
 void GetUsers(std::vector<user>* users)
 {
