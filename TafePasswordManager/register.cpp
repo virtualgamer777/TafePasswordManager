@@ -28,13 +28,15 @@ void Register(std::vector<user>* users)
 		}
 		else if (answer == "y" || answer == "Y")
 		{
-			std::cout << "would you like to use numbers? (y\\n)";
-			std::cin >> answer;
+			
 			while (1)
 			{
+				std::cout << "would you like to use numbers? (y\\n)";
+				std::cin >> answer;
 				if (answer == "y" || answer == "Y")
 				{
 					validChars = validChars + numbers;
+					break;
 				}
 				else if (answer == "n" || answer == "N")
 				{
@@ -45,13 +47,15 @@ void Register(std::vector<user>* users)
 					std::cout << "input a valid option\n";
 				}
 			}
-			std::cout << "would you like to use special characters? (y\\n)";
-			std::cin >> answer;
+			
 			while (1)
 			{
+				std::cout << "would you like to use special characters? (y\\n)";
+				std::cin >> answer;
 				if (answer == "y" || answer == "Y")
 				{
 					validChars = validChars + specialCharacters;
+					break;
 				}
 				else if (answer == "n" || answer == "N")
 				{
@@ -61,6 +65,32 @@ void Register(std::vector<user>* users)
 				{
 					std::cout << "input a valid option\n";
 				}
+			}
+			
+			while (1)
+			{
+				std::cout << "How long should the password be? (between 10 and 20 characters)";
+				std::cin >> answer;
+				int answeri = -1;
+				try
+				{
+					answeri = std::stoi(answer);
+				}
+				catch (std::exception e)
+				{
+					std::cout << "input a number\n";
+				}
+				if (answeri <= 20 && answeri >= 10)
+				{
+					srand((unsigned int)time(0));
+					for (int i = 0; i < answeri; i++)
+					{
+						newUser.u_password += validChars[rand() % validChars.size()];
+						std::cout << newUser.u_password << "\n";
+					}
+					break;
+				}
+				std::cout << "the number " << answeri << " is outside of the range we allow. please specify a number between 10 and 20\n";
 			}
 
 			break;
