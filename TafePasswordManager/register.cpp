@@ -22,16 +22,17 @@ void Register(std::vector<user>* users)
 		std::cin >> answer;
 		if (answer == "n" || answer == "N")
 		{
+			//let user make password
 			std::cout << "new password: ";
 			std::cin >> newUser.u_password;
 			break;
 		}
 		else if (answer == "y" || answer == "Y")
 		{
-			
+			//example of bad code
 			while (1)
 			{
-				std::cout << "would you like to use numbers? (y\\n)";
+				std::cout << "would you like to use numbers? (y\\n): ";
 				std::cin >> answer;
 				if (answer == "y" || answer == "Y")
 				{
@@ -50,7 +51,7 @@ void Register(std::vector<user>* users)
 			
 			while (1)
 			{
-				std::cout << "would you like to use special characters? (y\\n)";
+				std::cout << "would you like to use special characters? (y\\n): ";
 				std::cin >> answer;
 				if (answer == "y" || answer == "Y")
 				{
@@ -86,8 +87,8 @@ void Register(std::vector<user>* users)
 					for (int i = 0; i < answeri; i++)
 					{
 						newUser.u_password += validChars[rand() % validChars.size()];
-						std::cout << newUser.u_password << "\n";
 					}
+					std::cout << "Your password is: " << newUser.u_password << "\n";
 					break;
 				}
 				std::cout << "the number " << answeri << " is outside of the range we allow. please specify a number between 10 and 20\n";

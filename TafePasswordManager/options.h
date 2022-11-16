@@ -14,5 +14,4 @@ void Login(std::vector<user>* users);
 void Register(std::vector<user>* users);
 void ViewAccounts(std::vector<user>* users);
 void GetUsers(std::vector<user> *users);
-void WriteUser(user* u);
 
