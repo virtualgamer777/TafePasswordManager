@@ -16,6 +16,7 @@ void Register(std::vector<user>* users)
 	std::string answer;
 
 	//create/generate password (it is hell)
+	//read couts to determin what the application is doing from this point forward
 	while (1)
 	{
 		std::cout << "would you like us to generate a password? (y\\n): ";
@@ -101,7 +102,7 @@ void Register(std::vector<user>* users)
 		}
 	}
 
-	//write to file and push to the current list
+	//write new user file and push to the currently instantiated array
 	std::ofstream f;
 	f.open("users.txt", std::ofstream::app);
 	if (f.is_open())
