@@ -1,3 +1,9 @@
+/*
+	Benjamin Bale
+	29/11/22
+	This application is to manage user accounts including logging in, registering and viewing all accounts
+*/
+
 #include <iostream>
 #include "options.h"
 

@@ -1,3 +1,9 @@
+/*
+	Benjamin Bale
+	29/11/22
+	This application is to manage user accounts including logging in, registering and viewing all accounts 
+*/
+
 #include <iostream>
 #include "options.h"
 
@@ -28,6 +34,7 @@ void Register(std::vector<user>* users)
 			std::cin >> newUser.u_password;
 			break;
 		}
+		//the following asks for the option the user wants to use for generating a password 
 		else if (answer == "y" || answer == "Y")
 		{
 			//example of bad code
@@ -69,8 +76,10 @@ void Register(std::vector<user>* users)
 				}
 			}
 			
+			
 			while (1)
 			{
+				//ask for password length
 				std::cout << "How long should the password be? (between 10 and 20 characters)";
 				std::cin >> answer;
 				int answeri = -1;
@@ -82,6 +91,7 @@ void Register(std::vector<user>* users)
 				{
 					std::cout << "input a number\n";
 				}
+				//generate password using the given arguments
 				if (answeri <= 20 && answeri >= 10)
 				{
 					srand((unsigned int)time(0));
