@@ -16,8 +16,9 @@ void Login(std::vector<user>* users)
 	//just ask for username and password
 	while (1)
 	{
-		std::cout << "Username: ";
+		std::cout << "(type BACK in all caps to go back to the menu)\nUsername: ";
 		std::cin >> u_name;
+		if (u_name == "BACK") return;
 		user account;
 		std::cout << account.u_name;
 
