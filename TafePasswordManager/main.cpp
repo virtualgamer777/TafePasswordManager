@@ -10,10 +10,13 @@ int main(int argc, char** argv)
 {
 
     std::time_t t = std::time(0);
+#ifdef win32
     char time[26];
     ctime_s(time, sizeof(time), &t);
-    std::cout << "current time is: " << time << "\n\n\n";
-    
+#else
+    char* time = ctime(&t);
+#endif
+        std::cout << "current time is: " << time << "\n\n\n";
 
     bool comeBack = true;
     std::vector<user> users;
@@ -39,9 +42,9 @@ int main(int argc, char** argv)
         {
             choice = std::stoi(choiceAsStr);
         }
-        catch (std::exception e)
+        catch(const std::exception &e)
         {
-            std::cout << "please input a number\n";
+            std::cout << "please input a number\n" << e.what() << "\n";
             continue;
         }
 
